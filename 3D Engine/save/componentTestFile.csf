@@ -1,0 +1,5 @@
+testComponent
+f floater 1.0
+i integer 69
+s astring testString
+v vector 1.0 254.0 2455.0566

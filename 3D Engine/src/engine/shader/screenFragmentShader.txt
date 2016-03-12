@@ -1,0 +1,16 @@
+#version 330 core
+
+in vec2 textureCoords;
+
+out vec4 color;
+
+uniform sampler2D screenTexture;
+uniform sampler2D skyboxTexture;
+uniform float gamma;
+
+void main(void){
+    vec3 hdrColor = texture(screenTexture, textureCoords).rgb;
+    vec3 mapped = hdrColor / (hdrColor + vec3(1.0));
+    mapped = pow(mapped, vec3(1.0 / gamma));
+    color = vec4(mapped, 1.0);
+}

@@ -1,0 +1,18 @@
+#version 140
+
+in vec2 position;
+
+out vec2 textureCoords;
+
+uniform mat4 transformationMatrix;
+uniform vec4 texCoords;
+
+void main(void){
+
+	gl_Position = transformationMatrix * vec4(position.x, position.y, 0.0, 1.0);
+	
+	float posY = 1.0 - position.y;
+	float texX = texCoords.x + (position.x) * texCoords.z;
+	float texY = texCoords.y + (posY) * texCoords.w;
+	textureCoords = vec2(texX, texY);
+}
