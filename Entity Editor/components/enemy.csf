@@ -1,0 +1,4 @@
+enemy
+s name BasicEnemy
+i health 100
+f speed 2.0
