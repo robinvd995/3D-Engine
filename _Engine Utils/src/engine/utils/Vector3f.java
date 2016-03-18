@@ -344,4 +344,8 @@ public class Vector3f extends Vector implements Serializable, ReadableVector3f, 
 	public float getZ() {
 		return z;
 	}
+	
+	public Vector3f copy(){
+		return new Vector3f(x, y, z);
+	}
 }

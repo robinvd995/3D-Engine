@@ -2,7 +2,6 @@ package engine;
 
 import engine.component.ComponentBase;
 import engine.component.ComponentData;
-import engine.utils.GlobalAxis;
 import engine.utils.MathHelper;
 
 public class Player extends ComponentBase{

@@ -1,13 +1,9 @@
 package engine;
 
-import java.util.EnumSet;
-
 import engine.geometry.AABB;
 import engine.input.InputAction;
 import engine.input.InputManager;
 import engine.physics.Collider;
-import engine.physics.Ray;
-import engine.physics.Ray.RayHit;
 import engine.renderer.Camera;
 import engine.renderer.ComponentGuiTag;
 import engine.renderer.ComponentGuiTexture;

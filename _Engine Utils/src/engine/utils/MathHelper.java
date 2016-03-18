@@ -1,7 +1,5 @@
 package engine.utils;
 
-import engine.renderer.Camera;
-
 public class MathHelper {
 
 	public static Matrix4f createTransformationMatrix(Vector3f position, float sx, float sy, float sz, Quaternion quat){
@@ -32,14 +30,11 @@ public class MathHelper {
 		return matrix;
 	}
 	
-	public static Matrix4f createViewMatrix(Camera camera){
+	public static Matrix4f createViewMatrix(Vector3f position, Quaternion rotation){
 		Matrix4f m = new Matrix4f();
 		m.setIdentity();
-		//Matrix4f.rotate(AngleHelper.toRadians(camera.getPitch()), GlobalAngle.X.toVector(), m, m);
-		//Matrix4f.rotate(AngleHelper.toRadians(camera.getYaw()), GlobalAngle.Y.toVector(), m, m);
-		//Matrix4f.rotate(AngleHelper.toRadians(camera.getRoll()), GlobalAngle.Z.toVector(), m, m);
-		Matrix4f.mul(m, camera.getRotation().toMatrix(), m);
-		Vector3f cameraPos = camera.getPosition();
+		Matrix4f.mul(m, rotation.toMatrix(), m);
+		Vector3f cameraPos = position.copy();
 		Vector3f negativeCameraPos = new Vector3f(-cameraPos.x, -cameraPos.y, -cameraPos.z);
 		Matrix4f.translate(negativeCameraPos, m, m);
 		return m;
